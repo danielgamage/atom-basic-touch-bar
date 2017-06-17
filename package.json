@@ -5,8 +5,8 @@
   "description": "A short description of your package",
   "keywords": [
   ],
-  "activationCommands": {
-    "atom-workspace": "touch-bar:toggle"
+  "activationHooks": {
+    "atom-workspace": "core:loaded-shell-environment"
   },
   "repository": "https://github.com/atom/touch-bar",
   "license": "MIT",
