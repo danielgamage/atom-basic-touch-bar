@@ -1,6 +1,6 @@
 'use babel';
 
-import TouchBar from '../lib/touch-bar';
+import TouchBar from '../lib/basic-touch-bar';
 
 // Use the command `window:run-package-specs` (cmd-alt-ctrl-p) to run specs.
 //
@@ -12,32 +12,32 @@ describe('TouchBar', () => {
 
   beforeEach(() => {
     workspaceElement = atom.views.getView(atom.workspace);
-    activationPromise = atom.packages.activatePackage('touch-bar');
+    activationPromise = atom.packages.activatePackage('basic-touch-bar');
   });
 
-  describe('when the touch-bar:toggle event is triggered', () => {
+  describe('when the basic-touch-bar:toggle event is triggered', () => {
     it('hides and shows the modal panel', () => {
       // Before the activation event the view is not on the DOM, and no panel
       // has been created
-      expect(workspaceElement.querySelector('.touch-bar')).not.toExist();
+      expect(workspaceElement.querySelector('.basic-touch-bar')).not.toExist();
 
       // This is an activation event, triggering it will cause the package to be
       // activated.
-      atom.commands.dispatch(workspaceElement, 'touch-bar:toggle');
+      atom.commands.dispatch(workspaceElement, 'basic-touch-bar:toggle');
 
       waitsForPromise(() => {
         return activationPromise;
       });
 
       runs(() => {
-        expect(workspaceElement.querySelector('.touch-bar')).toExist();
+        expect(workspaceElement.querySelector('.basic-touch-bar')).toExist();
 
-        let touchBarElement = workspaceElement.querySelector('.touch-bar');
+        let touchBarElement = workspaceElement.querySelector('.basic-touch-bar');
         expect(touchBarElement).toExist();
 
         let touchBarPanel = atom.workspace.panelForItem(touchBarElement);
         expect(touchBarPanel.isVisible()).toBe(true);
-        atom.commands.dispatch(workspaceElement, 'touch-bar:toggle');
+        atom.commands.dispatch(workspaceElement, 'basic-touch-bar:toggle');
         expect(touchBarPanel.isVisible()).toBe(false);
       });
     });
@@ -51,11 +51,11 @@ describe('TouchBar', () => {
       // workspaceElement to the DOM are generally slower than those off DOM.
       jasmine.attachToDOM(workspaceElement);
 
-      expect(workspaceElement.querySelector('.touch-bar')).not.toExist();
+      expect(workspaceElement.querySelector('.basic-touch-bar')).not.toExist();
 
       // This is an activation event, triggering it causes the package to be
       // activated.
-      atom.commands.dispatch(workspaceElement, 'touch-bar:toggle');
+      atom.commands.dispatch(workspaceElement, 'basic-touch-bar:toggle');
 
       waitsForPromise(() => {
         return activationPromise;
@@ -63,9 +63,9 @@ describe('TouchBar', () => {
 
       runs(() => {
         // Now we can test for view visibility
-        let touchBarElement = workspaceElement.querySelector('.touch-bar');
+        let touchBarElement = workspaceElement.querySelector('.basic-touch-bar');
         expect(touchBarElement).toBeVisible();
-        atom.commands.dispatch(workspaceElement, 'touch-bar:toggle');
+        atom.commands.dispatch(workspaceElement, 'basic-touch-bar:toggle');
         expect(touchBarElement).not.toBeVisible();
       });
     });

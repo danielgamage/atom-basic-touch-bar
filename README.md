@@ -1,4 +1,4 @@
-# touch-bar package
+# basic-touch-bar package
 
 A short description of your package.
 

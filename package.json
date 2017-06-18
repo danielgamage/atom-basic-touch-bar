@@ -1,14 +1,14 @@
 {
-  "name": "touch-bar",
-  "main": "./lib/touch-bar",
+  "name": "basic-touch-bar",
+  "main": "./lib/basic-touch-bar",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "A basic touch bar for Atom on MacBook Pros",
   "keywords": [
   ],
   "activationHooks": {
     "atom-workspace": "core:loaded-shell-environment"
   },
-  "repository": "https://github.com/atom/touch-bar",
+  "repository": "https://github.com/danielgamage/basic-touch-bar",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
